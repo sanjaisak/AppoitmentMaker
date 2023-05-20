@@ -1,0 +1,10 @@
+<section id="side-bar" [ngClass]="isSideBarOpen()">
+  <div
+    id="menu-item"
+    *ngFor="let sideNavData of sideNavData"
+    (click)="sideMenuRoute(sideNavData.component)"
+  >
+    <img [src]="sideNavData.path" [alt]="sideNavData.name + ' icon'" />
+    <p id="menu-text">{{ sideNavData.name }}</p>
+  </div>
+</section>

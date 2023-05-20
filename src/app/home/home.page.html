@@ -1,0 +1,15 @@
+<header id="header">
+  <div id="container">
+    <ion-icon id="header-menu" name="menu" (click)="sideBarToggle()"></ion-icon>
+    <p id="header-title">Appointment Maker</p>
+    <ion-icon id="header-profile" name="person-circle-outline"></ion-icon>
+  </div>
+</header>
+<div id="body">
+  <app-side-nav-bar
+    id="sidebar"
+    [isSideBarOpen]="isSideBarOpen"
+    (sideBarRoute)="loadComponent($event)"
+  ></app-side-nav-bar>
+  <ng-template NavComponentRef id="mainContainer"></ng-template>
+</div>

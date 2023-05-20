@@ -1,0 +1,67 @@
+@import '../../colors.scss';
+#side-bar{
+    height: 100%;
+    padding-top: 5px;
+    box-shadow: 2px 0px 10px $shadow;
+    overflow: hidden;
+  }
+  
+  #menu-item{
+    display: flex;
+    margin: 10px 0px 0px 0px;
+    padding: 0px 0px 0px 10px;
+    align-items: center;
+    height: 30px;
+  }
+
+  img{
+    height: 20px;
+    width: 20px;
+  }
+  @media screen and (min-width: 480px) {
+    #side-bar{
+      width: 40px;
+      border-radius: 0px 15px 15px 0px;
+     
+    }
+    @keyframes side-bar-hover {
+      from {width:50px ;}
+      to {width:15vw ;}
+    }
+    #side-bar:hover{
+      width: 15vw;
+      animation-name: side-bar-hover;
+      animation-duration: 0.3s;
+    }
+    #side-bar img{
+      position: fixed;
+    }
+    #side-bar:hover #menu-text{
+      display: block;
+      transition: display 2s;
+    }
+    #menu-item:hover{
+      background-color: $shadow;
+      border-radius: 0px 15px 15px 0px;
+      cursor: pointer;
+    }
+    #menu-text{
+      padding-left: 30px;
+      display: none;
+    }
+  }
+  @media screen and (max-width: 480px) {
+  #side-bar img{
+    margin-right: 10px;
+  }
+  .sidebarOpen{
+    display: block;
+    width: 100%;
+    transition: .40s;
+  }
+  .sidebarClose{
+    display: none;
+    width: 0%;
+    transition: .40s;
+  }
+  }

@@ -1,0 +1,177 @@
+<div id="container">
+  <h2 id="subHeading">Add New Doctor</h2>
+  <form id="doctorForm" [formGroup]="doctorInfo">
+    <div id="newDoctorInfo">
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Doctor Name</ion-label>
+        <ion-input
+          type="text"
+          id="doctorName"
+          formControlName="doctorName"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('doctorName')"
+          >Doctor Name is required</ion-note
+        >
+        <ion-note
+          slot="error"
+          *ngIf="
+            this.doctorInfo.get('doctorName').errors?.maxlength &&
+            this.doctorInfo.get('doctorName').touched
+          "
+          >Name can be max 20 characters long</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Speciality</ion-label>
+        <ion-input
+          type="text"
+          id="speciality"
+          formControlName="speciality"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('speciality')"
+          >Doctor speciality is required</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">D.O.B</ion-label>
+        <!-- TODO AM-20 date is not supported in ionic input -->
+        <ion-input type="date" id="doctorDOB" formControlName="dob"></ion-input>
+        <ion-note slot="error" *ngIf="required('dob')"
+          >D.O.B is required</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Phone Number</ion-label>
+        <ion-input
+          type="tel"
+          id="doctorNumber"
+          formControlName="phoneNumber"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('phoneNumber')"
+          >Phone Number is required</ion-note
+        >
+        <ion-note
+          slot="error"
+          *ngIf="doctorInfo.get('phoneNumber').errors?.pattern"
+          >Phone Number should contain 10 numbers</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label>Gender</ion-label>
+        <ion-select
+          placeholder="Select"
+          id="doctorGender"
+          formControlName="gender"
+        >
+          <ion-select-option
+            *ngFor="let doctorGender of doctorGenderList"
+            value="{{ doctorGender }}"
+            >{{ doctorGender }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </div>
+    <ion-button
+      shape="round"
+      value="Add New Doctor"
+      [disabled]="!doctorInfo.valid"
+      (click)="storeDoctorInfo()"
+      fill="solid"
+      >Add New Doctor</ion-button
+    >
+  </form>
+  <h2>Available Doctors</h2>
+  <div
+    *ngFor="
+      let doctorDetails of availableDoctorDetails;
+      let doctorListIndex = index
+    "
+  >
+    <div
+      *ngIf="
+        doctorDetails.availability === this.doctorAvailabilityType.available
+      "
+      id="doctorDetails{{ doctorListIndex + 1 }}"
+      class="doctorInfo"
+    >
+      <div id="doctorInfoPart">
+        <p id="doctorID">{{ doctorListIndex + 1 }}.</p>
+        <img id="doctorImage" [src]="doctorDetails.photo" alt="Doctor Image" />
+        <p id="doctorNameList">{{ doctorDetails.name }}</p>
+      </div>
+      <div id="doctorManagementPart">
+        <button id="doctorInfoEdit" (click)="editModalOpen(doctorDetails)">
+          Edit
+        </button>
+        <button
+          id="doctorInfoDisable"
+          (click)="
+            changeDoctorStatus(
+              doctorListIndex,
+              this.doctorAvailabilityType.unAvailable
+            )
+          "
+        >
+          Disable
+        </button>
+        <button
+          id="doctorInfoDelete"
+          (click)="
+            changeDoctorStatus(
+              doctorListIndex,
+              this.doctorAvailabilityType.removed
+            )
+          "
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+  <h2>Unavailable Doctors</h2>
+  <div
+    *ngFor="
+      let doctorDetails of availableDoctorDetails;
+      let doctorListIndex = index
+    "
+  >
+    <div
+      *ngIf="doctorDetails.availability === doctorAvailabilityType.unAvailable"
+      id="doctorDetails{{ doctorListIndex + 1 }}"
+      class="doctorInfo"
+    >
+      <div id="doctorInfoPart">
+        <p id="doctorID">{{ doctorListIndex + 1 }}.</p>
+        <img id="doctorImage" [src]="doctorDetails.photo" alt="Doctor Image" />
+        <p id="doctorNameList">{{ doctorDetails.name }}</p>
+      </div>
+      <div id="doctorManagementPart">
+        <button id="doctorInfoEdit" (click)="editModalOpen(doctorDetails)">
+          Edit
+        </button>
+        <button
+          id="doctorInfoEnable"
+          (click)="
+            changeDoctorStatus(
+              doctorListIndex,
+              this.doctorAvailabilityType.available
+            )
+          "
+        >
+          Enable
+        </button>
+        <button
+          id="doctorInfoDelete"
+          (click)="
+            changeDoctorStatus(
+              doctorListIndex,
+              this.doctorAvailabilityType.removed
+            )
+          "
+        >
+          Delete
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

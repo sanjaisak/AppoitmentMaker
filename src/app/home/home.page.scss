@@ -1,0 +1,55 @@
+@import '../../colors.scss';
+#header{
+  height: 7vh;
+  box-shadow: 0px 1px $shadow;
+}
+
+#header #container{
+  display: flex;
+  align-items:center;
+}
+#header-profile{
+  height: 30px;
+  width: 30px;
+  margin-right: 5px;
+}
+#body{
+  height: 93vh;
+  }
+@media screen and (min-width: 480px) {
+  #header{
+    padding-left:10px ;
+  }
+  #header #container{
+    justify-content: space-between;
+}
+#header-profile{
+  margin-right: 20px;
+}
+#header-title{
+  margin-left: 5px;
+}
+  #header-menu{
+    display: none;
+  }
+  #body{
+display: flex;
+  }
+}
+@media screen and (max-width: 480px) {
+  #header-menu{
+    display: block;
+  }
+  #header-menu{
+    width: 10vw;
+    height: 20px;
+  }
+#header-title{
+  width: 80vw;
+  display: flex;
+  justify-content: center;
+}
+#header-profile{
+  width: 10vw;
+}
+}
