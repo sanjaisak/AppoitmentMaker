@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { doctorDetails } from "../sample-data/doctor-details";
+import { doctorDetails } from "../sample-data/sample-data";
 import { doctorAvailabilityType } from "src/types/enums";
 
 /**
