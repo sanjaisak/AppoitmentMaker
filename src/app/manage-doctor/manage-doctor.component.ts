@@ -2,8 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { ModalController } from "@ionic/angular";
 import { Validators, FormBuilder } from "@angular/forms";
 import { doctorAvailabilityType, doctorGenderType } from "../../types/enums";
-import { doctorDetails } from "../../types/interfaces";
-import { availableDoctorDetails } from "./doctor-details";
+import { DoctorDetails } from "../../types/interfaces";
+import { doctorDetails } from "../sample-data/doctor-details";
 import { EditDoctorDetailsComponent } from "./edit-doctor-details/edit-doctor-details.component";
 
 @Component({
@@ -22,10 +22,10 @@ export class ManageDoctorComponent {
   public doctorInfo: FormBuilder | any;
 
   /** used to temparorly store doctor data */
-  public details: doctorDetails | any;
+  public details: DoctorDetails | any;
 
   /** initilization of doctor details from doctor-details file */
-  public availableDoctorDetails = availableDoctorDetails;
+  public availableDoctorDetails = doctorDetails;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -90,7 +90,7 @@ export class ManageDoctorComponent {
    * used to open the modal for editing the doctor details
    * @param selectedDoctorDetails accepts the selected doctor details object to be edited
    */
-  public async editModalOpen(selectedDoctorDetails: doctorDetails) {
+  public async editModalOpen(selectedDoctorDetails: DoctorDetails) {
     /** used to crteate the edit modal and store the reference */
     const editModal = await this.modalCtrl.create({
       component: EditDoctorDetailsComponent,

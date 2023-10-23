@@ -1,28 +1,27 @@
 import { doctorAvailabilityType, doctorGenderType } from "./enums";
 
 /** @componentmanage-doctor
- * it is used to implement the details required for doctor 
+ * it is used to implement the details required for doctor
  */
-export interface doctorDetails{
-  
+export interface DoctorDetails {
   // contains the doctor photo
-    photo:string;
+  photo: string;
 
-    //contains the doctor name
-    name:string;
+  //contains the doctor name
+  name: string;
 
-    //contains the date of borth of doctor
-    dob:Date; 
+  //contains the date of borth of doctor
+  dob: Date;
 
-    //represent the contact number of doctor
-    phoneNumber:number;
+  //represent the contact number of doctor
+  phoneNumber: number;
 
-    //stores the specialization of doctor
-    speciality:string;
+  //stores the specialization of doctor
+  speciality: string;
 
-    //stores the availability of doctor
-    availability:doctorAvailabilityType;
+  //stores the availability of doctor
+  availability: doctorAvailabilityType;
 
-    //stores the gender of doctor
-    gender:doctorGenderType
-  }
+  //stores the gender of doctor
+  gender: doctorGenderType;
+}

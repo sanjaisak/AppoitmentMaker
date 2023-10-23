@@ -1,5 +1,5 @@
 import { Component } from "@angular/core";
-import { availableDoctorDetails } from "../manage-doctor/doctor-details";
+import { doctorDetails } from "../sample-data/doctor-details";
 import { doctorAvailabilityType } from "src/types/enums";
 
 /**
@@ -58,7 +58,7 @@ export class AppointmentSchedularComponent {
    * @returns available doctors
    */
   public getAvailableDoctor() {
-    const doctors = availableDoctorDetails.filter(
+    const doctors = doctorDetails.filter(
       (doctor) => doctor.availability === doctorAvailabilityType.available
     );
 
