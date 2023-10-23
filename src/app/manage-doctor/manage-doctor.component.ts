@@ -3,7 +3,7 @@ import { ModalController } from "@ionic/angular";
 import { Validators, FormBuilder } from "@angular/forms";
 import { doctorAvailabilityType, doctorGenderType } from "../../types/enums";
 import { DoctorDetails } from "../../types/interfaces";
-import { doctorDetails } from "../sample-data/doctor-details";
+import { doctorDetails } from "../sample-data/sample-data";
 import { EditDoctorDetailsComponent } from "./edit-doctor-details/edit-doctor-details.component";
 
 @Component({

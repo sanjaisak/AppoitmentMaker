@@ -33,3 +33,32 @@ export const doctorDetails: DoctorDetails[] = [
     gender: doctorGenderType.female,
   },
 ];
+
+export const slotDetails = [
+  {
+    id: "23",
+    name: "lisa",
+    startTime: "2023-10-23T17:18",
+    endTime: "2023-10-23T17:19",
+    visitors: [
+      {
+        name: "sanjai",
+        phoneNumber: "9629246824",
+        status: "completed",
+        tokenNumber: 1,
+      },
+      {
+        name: "bharathi",
+        phoneNumber: "9489191357",
+        status: "inprogress",
+        tokenNumber: 2,
+      },
+      {
+        name: "saran",
+        phoneNumber: "9487717207",
+        status: "Not started",
+        tokenNumber: 2,
+      },
+    ],
+  },
+];
