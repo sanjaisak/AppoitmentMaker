@@ -2,9 +2,16 @@
   display: flex;
   flex-direction: column;
 }
+
 #createWorkingSlot {
   #form-footer {
     display: flex;
     justify-content: flex-end;
+  }
+}
+
+#listAvailableSlot {
+  ion-item:hover {
+    cursor: pointer;
   }
 }
