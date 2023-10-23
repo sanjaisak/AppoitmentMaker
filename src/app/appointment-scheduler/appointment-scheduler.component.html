@@ -7,6 +7,35 @@
       >
     </ion-card-header>
 
-    <ion-card-content> </ion-card-content>
+    <ion-card-content>
+      <ion-list>
+        <ion-item>
+          <ion-select
+            justify="space-between"
+            label="Doctor Name"
+            placeholder="Select Doctor"
+          >
+            <ion-select-option
+              *ngFor="let doctor of this.getAvailableDoctor()"
+              [value]="doctor.name"
+              >{{ doctor.name }}</ion-select-option
+            >
+          </ion-select>
+        </ion-item>
+        <ion-item>
+          <ion-label>Start Time</ion-label>
+          <ion-input label="Number input" type="datetime-local"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>End Time</ion-label>
+          <ion-input label="Number input" type="datetime-local"></ion-input>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+    <div id="form-footer">
+      <ion-button fill="solid" color="danger">Cancel</ion-button>
+      <ion-button fill="solid">Create</ion-button>
+    </div>
   </ion-card>
 </section>
