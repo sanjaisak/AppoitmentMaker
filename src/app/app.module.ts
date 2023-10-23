@@ -6,6 +6,7 @@ import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { LayoutModule } from "./layout/layout.module";
 import { ManageDoctorModule } from "./manage-doctor/manager-doctor.module";
+import { AppointmentSchedulerModule } from "./appointment-scheduler/appointment-scheduler.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,6 +16,7 @@ import { ManageDoctorModule } from "./manage-doctor/manager-doctor.module";
     AppRoutingModule,
     LayoutModule,
     ManageDoctorModule,
+    AppointmentSchedulerModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
