@@ -5,6 +5,5 @@ import { Directive,ViewContainerRef } from '@angular/core';
 })
 export class NavigateComponent {
 
-  constructor(public viewReference:ViewContainerRef) { }
-
+  constructor(public viewReference:ViewContainerRef) {}
 }

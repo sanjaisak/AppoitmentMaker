@@ -1,24 +1,23 @@
-import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { ComponentFixture, TestBed, waitForAsync } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
+import { EditDoctorDetailsComponent } from "./edit-doctor-details.component";
 
-import { EditDoctorDetailsModalComponent } from './edit-doctor-details.component';
-
-describe('DoctorDetailsEditModalComponent', () => {
-  let component: EditDoctorDetailsModalComponent;
-  let fixture: ComponentFixture<EditDoctorDetailsModalComponent>;
+describe("DoctorDetailsEditComponent", () => {
+  let component: EditDoctorDetailsComponent;
+  let fixture: ComponentFixture<EditDoctorDetailsComponent>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditDoctorDetailsModalComponent ],
-      imports: [IonicModule.forRoot()]
+      declarations: [EditDoctorDetailsComponent],
+      imports: [IonicModule.forRoot()],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(EditDoctorDetailsModalComponent);
+    fixture = TestBed.createComponent(EditDoctorDetailsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

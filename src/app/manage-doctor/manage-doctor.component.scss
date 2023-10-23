@@ -1,86 +1,82 @@
-@import '../../colors.scss';
-h2{
-    margin-left: 10px;
+@import "../../colors.scss";
+h2 {
+  margin-left: 10px;
 }
-#container{
-    height: 100%;
-    overflow-y: auto;
+#container {
+  height: 100%;
+  overflow-y: auto;
 }
-#newDoctorInfo{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: center;
+#newDoctorInfo {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: center;
 }
-@media only screen and (max-width:480px){
-    #newDoctorInfo{
-        flex-direction: column;
-    }
-}
-@media only screen and (min-width:480px){
-    #container{
-
-        /** TODO: [ AM-21 ] remove calc and implement the same in ts file so we can test it */
-        width: calc(100vw - 40px) !important;
-    }
-}
-#doctorForm{
-    display: flex;
+@media only screen and (max-width: 480px) {
+  #newDoctorInfo {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  }
 }
-#formItem{
-    width: 200px;
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
+#doctorForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#doctorImage{
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
+#formItem {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
 }
-.doctorInfo{
-    display: flex;
-    justify-content: space-between;
-    background-color:$lightGreyShade;
-    margin: 10px 3vw 10px 3vw ;
-    border-radius: 20px;
-    align-items: center;
+#doctorImage {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
-#doctorInfoPart,#doctorManagementPart{
-    display: flex;
-    align-items: center;
-    
+.doctorInfo {
+  display: flex;
+  justify-content: space-between;
+  background-color: $lightGreyShade;
+  margin: 10px 3vw 10px 3vw;
+  border-radius: 20px;
+  align-items: center;
 }
-#doctorID{
- margin-left: 1vw;
+#doctorInfoPart,
+#doctorManagementPart {
+  display: flex;
+  align-items: center;
 }
-#doctorImage,#doctorNameList{
-    margin-left:2vw;
+#doctorID {
+  margin-left: 1vw;
 }
-#doctorInfoEdit,#doctorInfoDisable,#doctorInfoEnable{
-    border-radius: 10px;
-    margin-right: 3vw;
-    width: 15vw;
-    max-width: 80px;
-    height: 30px;
+#doctorImage,
+#doctorNameList {
+  margin-left: 2vw;
 }
-#doctorInfoDelete{
-    background-color: $red;
-    border-radius: 10px;
-    margin-right: 1.5vw;
-    width: 15vw;
-    max-width: 80px;
-    height: 30px;
+#doctorInfoEdit,
+#doctorInfoDisable,
+#doctorInfoEnable {
+  border-radius: 10px;
+  margin-right: 3vw;
+  width: 15vw;
+  max-width: 80px;
+  height: 30px;
 }
-#doctorInfoDisable{
-    background-color: $goldenYellow;
+#doctorInfoDelete {
+  background-color: $red;
+  border-radius: 10px;
+  margin-right: 1.5vw;
+  width: 15vw;
+  max-width: 80px;
+  height: 30px;
 }
-#doctorInfoEdit{
-    background-color: $gray;
+#doctorInfoDisable {
+  background-color: $goldenYellow;
 }
-#doctorInfoEnable{
-    background-color:$green;
+#doctorInfoEdit {
+  background-color: $gray;
+}
+#doctorInfoEnable {
+  background-color: $green;
 }
