@@ -53,13 +53,16 @@
     </ion-card>
   </section>
 
-  <section id="listAvailavleSlot">
+  <section id="listAvailableSlot">
     <ion-card>
       <ion-card-header>
         <ion-card-title>Available Working Slot</ion-card-title>
       </ion-card-header>
       <ion-list>
-        <ion-item *ngFor="let slot of availableSlot">
+        <ion-item
+          *ngFor="let slot of availableSlot"
+          (click)="routeToSlotPage(slot.id)"
+        >
           <ion-label
             >{{ slot.name }} slot starts from {{ slot.startTime }} and ends at
             {{ slot.endTime }}</ion-label

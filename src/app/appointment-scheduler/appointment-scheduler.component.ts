@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
 import { doctorDetails } from "../sample-data/sample-data";
 import { doctorAvailabilityType } from "src/types/enums";
+import { Router } from "@angular/router";
 
 /**
  * Contains information of available slots
@@ -56,6 +57,8 @@ export class AppointmentSchedularComponent {
     return this._availableSlot;
   }
 
+  public constructor(private _router: Router) {}
+
   /**
    * Used to get available doctor
    *
@@ -85,5 +88,14 @@ export class AppointmentSchedularComponent {
       startTime: startTime,
       endTime: endTime,
     });
+  }
+
+  /**
+   * Used to navigate to slot page
+   *
+   * @param slotId contains slot it
+   */
+  public routeToSlotPage(slotId: number) {
+    this._router.navigateByUrl(`/appointment-scheduler/${slotId}`);
   }
 }

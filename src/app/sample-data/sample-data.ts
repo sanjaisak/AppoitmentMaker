@@ -36,7 +36,7 @@ export const doctorDetails: DoctorDetails[] = [
 
 export const slotDetails = [
   {
-    id: "23",
+    id: "1",
     name: "lisa",
     startTime: "2023-10-23T17:18",
     endTime: "2023-10-23T17:19",
