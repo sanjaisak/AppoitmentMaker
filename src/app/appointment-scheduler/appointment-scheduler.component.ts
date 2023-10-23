@@ -7,6 +7,10 @@ import { doctorAvailabilityType } from "src/types/enums";
  */
 export interface AvailableSlot {
   /**
+   * Contains slot id
+   */
+  id: number;
+  /**
    * Contains name of the doctor or other
    */
   name: string;
@@ -73,7 +77,10 @@ export class AppointmentSchedularComponent {
    * @param endTime end time for working hours
    */
   public createWorkSlot(name: string, startTime: string, endTime: string) {
+    // TODO: id should be dynamically created
+    const id = 1;
     this._availableSlot.push({
+      id: id,
       name: name,
       startTime: startTime,
       endTime: endTime,
