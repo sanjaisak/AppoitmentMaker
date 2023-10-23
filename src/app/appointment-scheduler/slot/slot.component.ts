@@ -107,7 +107,7 @@ export class SlotComponent implements OnInit {
   }
 
   /**
-   * Resets inputs of adding new visitor
+   * Reset's inputs of adding new visitor
    */
   private restInputs() {
     this.visitorName = "";
