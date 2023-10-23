@@ -1,0 +1,12 @@
+#form-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+}
+
+#visitors-list {
+  ion-card-content {
+    max-height: 28vh;
+    overflow: auto;
+  }
+}

@@ -1,1 +1,85 @@
-<div *ngIf="slotInfo">This is slot for doctor {{ slotInfo.name }}</div>
+<div *ngIf="slotInfo">
+  <section id="slot-info">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Slot is assigned to {{ slotInfo.name }}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        This is slot for {{ slotInfo.name }} and the working time is from
+        {{ slotInfo.startTime }} and ends at {{ slotInfo.endTime }}
+      </ion-card-content>
+    </ion-card>
+  </section>
+
+  <section id="visitors-list">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>List of visitors</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col>No</ion-col>
+            <ion-col>Name</ion-col>
+            <ion-col>Start Time</ion-col>
+            <ion-col>End Time</ion-col>
+            <ion-col>Token Status</ion-col>
+            <ion-col> </ion-col>
+          </ion-row>
+          <ion-row *ngFor="let visitor of slotInfo.visitors">
+            <ion-col>{{ visitor.tokenNumber }}</ion-col>
+            <ion-col>{{ visitor.name }}</ion-col>
+            <ion-col>{{ visitor.startTime ?? "-" }}</ion-col>
+            <ion-col>{{ visitor.endTime ?? "-" }}</ion-col>
+            <ion-col>{{ visitor.status }}</ion-col>
+            <ion-col [ngSwitch]="visitor.status">
+              <ng-container *ngSwitchCase="'Inprogress'">
+                <ion-button fill="solid" color="danger">end</ion-button>
+              </ng-container>
+              <ng-container *ngSwitchCase="'Not Started'">
+                <ion-button fill="solid" color="success">start</ion-button>
+              </ng-container>
+              <ng-container *ngSwitchCase="'Completed'">
+                <ion-button fill="solid" color="medium" disabled="true"
+                  >completed</ion-button
+                >
+              </ng-container>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+      <div id="form-footer">
+        <ion-button fill="solid" color="danger">End Slot</ion-button>
+      </div>
+    </ion-card>
+  </section>
+
+  <section id="add-visitor">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Add new visitor</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+          <ion-item>
+            <ion-label>Name</ion-label>
+            <ion-input type="text" [(ngModel)]="visitorName"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-label>Phone Number</ion-label>
+            <ion-input type="text" [(ngModel)]="visitorPhoneNumber"></ion-input>
+          </ion-item>
+        </ion-list>
+      </ion-card-content>
+
+      <div id="form-footer">
+        <ion-button fill="solid" color="danger">Cancel</ion-button>
+        <ion-button
+          fill="solid"
+          (click)="addNewVisitor(this.visitorName, this.visitorPhoneNumber)"
+          >add</ion-button
+        >
+      </div>
+    </ion-card>
+  </section>
+</div>

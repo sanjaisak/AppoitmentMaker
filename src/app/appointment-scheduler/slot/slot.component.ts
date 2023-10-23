@@ -50,6 +50,16 @@ export interface visitor {
    * contains visitor token number
    */
   tokenNumber: number;
+
+  /**
+   * contains visitor starting time
+   */
+  startTime?: string;
+
+  /**
+   * contains visitor ending time
+   */
+  endTime?: string;
 }
 
 @Component({
@@ -58,12 +68,50 @@ export interface visitor {
   styleUrls: ["slot.component.scss"],
 })
 export class SlotComponent implements OnInit {
+  /**
+   * contains the current slot information
+   */
   public slotInfo!: SlotInformation;
+
+  /**
+   * contains the visitor name to be added
+   */
+  public visitorName: string = "";
+
+  /**
+   * contains the visitor phone number to be added
+   */
+  public visitorPhoneNumber: string = "";
 
   constructor(private _route: ActivatedRoute) {}
 
   public ngOnInit(): void {
     this.loadSlotInfo();
+  }
+
+  /**
+   * Used to add new visitor in the slot
+   *
+   * @param name visitor name
+   * @param phoneNumber visitor phone number
+   */
+  public addNewVisitor(name: string, phoneNumber: string) {
+    this.slotInfo.visitors.push({
+      name: name,
+      phoneNumber: phoneNumber,
+      status: TokenStatus.NOT_STARTED,
+      tokenNumber: this.slotInfo.visitors.length + 1,
+    });
+
+    this.restInputs();
+  }
+
+  /**
+   * Resets inputs of adding new visitor
+   */
+  private restInputs() {
+    this.visitorName = "";
+    this.visitorPhoneNumber = "";
   }
 
   /**
