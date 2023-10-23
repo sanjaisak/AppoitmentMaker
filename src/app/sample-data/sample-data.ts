@@ -1,4 +1,8 @@
-import { doctorAvailabilityType, doctorGenderType } from "src/types/enums";
+import {
+  TokenStatus,
+  doctorAvailabilityType,
+  doctorGenderType,
+} from "src/types/enums";
 import { DoctorDetails } from "src/types/interfaces";
 
 export const doctorDetails: DoctorDetails[] = [
@@ -44,20 +48,23 @@ export const slotDetails = [
       {
         name: "sanjai",
         phoneNumber: "9629246824",
-        status: "completed",
+        status: TokenStatus.COMPLETED,
+        startTime: "6:00 pm",
+        endTime: "6:15 pm",
         tokenNumber: 1,
       },
       {
         name: "bharathi",
         phoneNumber: "9489191357",
-        status: "inprogress",
+        startTime: "6:17 pm",
+        status: TokenStatus.INPROGRESS,
         tokenNumber: 2,
       },
       {
         name: "saran",
         phoneNumber: "9487717207",
-        status: "Not started",
-        tokenNumber: 2,
+        status: TokenStatus.NOT_STARTED,
+        tokenNumber: 3,
       },
     ],
   },
