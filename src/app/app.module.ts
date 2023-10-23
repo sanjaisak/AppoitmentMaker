@@ -4,7 +4,8 @@ import { RouteReuseStrategy } from "@angular/router";
 import { IonicModule, IonicRouteStrategy } from "@ionic/angular";
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { HomePageModule } from "./layout/layout.module";
+import { LayoutModule } from "./layout/layout.module";
+import { ManageDoctorModule } from "./manage-doctor/manager-doctor.module";
 
 @NgModule({
   declarations: [AppComponent],
@@ -12,7 +13,8 @@ import { HomePageModule } from "./layout/layout.module";
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    HomePageModule,
+    LayoutModule,
+    ManageDoctorModule,
   ],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],

@@ -1,7 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
-import { NavigateComponent } from "../navigate-component.directive";
-import { ManageDoctorComponent } from "../manage-doctor/manage-doctor.component";
-import { ContainerComponent } from "../container/container.component";
+import { Component } from "@angular/core";
 
 @Component({
   selector: "app-layout",

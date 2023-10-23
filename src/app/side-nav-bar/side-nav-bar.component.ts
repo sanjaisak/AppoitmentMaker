@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from "@angular/core";
-import { ContainerComponent } from "../container/container.component";
+import { ContainerComponent } from "../layout/container/container.component";
 import { ManageDoctorComponent } from "../manage-doctor/manage-doctor.component";
 import { iconPath } from "src/types/paths";
 interface sideBarData {
