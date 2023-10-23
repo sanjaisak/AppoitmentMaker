@@ -65,13 +65,18 @@ export class AppointmentSchedularComponent {
     return doctors;
   }
 
+  /**
+   * Used to create new work slot
+   *
+   * @param name doctor or employee name
+   * @param startTime start time for working hours
+   * @param endTime end time for working hours
+   */
   public createWorkSlot(name: string, startTime: string, endTime: string) {
     this._availableSlot.push({
       name: name,
       startTime: startTime,
       endTime: endTime,
     });
-
-    console.log(this.availableSlot);
   }
 }
