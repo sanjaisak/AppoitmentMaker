@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { ManageDoctorComponent } from "./manage-doctor/manage-doctor.component";
 import { LayoutComponent } from "./layout/layout.component";
 import { AppointmentSchedularComponent } from "./appointment-scheduler/appointment-scheduler.component";
+import { SlotComponent } from "./appointment-scheduler/slot/slot.component";
 
 const routes: Routes = [
   {
@@ -16,6 +17,10 @@ const routes: Routes = [
       {
         path: "appointment-scheduler",
         component: AppointmentSchedularComponent,
+      },
+      {
+        path: "appointment-scheduler/:slotId",
+        component: SlotComponent,
       },
     ],
   },
