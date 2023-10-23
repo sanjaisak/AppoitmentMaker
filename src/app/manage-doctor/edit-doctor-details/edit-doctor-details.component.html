@@ -1,0 +1,87 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancelEditModal()">Cancel</ion-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-button (click)="saveEditModal()" [disabled]="!doctorInfo.valid"
+        >Save</ion-button
+      >
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <h2 id="subHeading">Add New Doctor</h2>
+  <form id="doctorForm" [formGroup]="doctorInfo">
+    <div id="newDoctorInfo">
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Doctor Name</ion-label>
+        <ion-input
+          type="text"
+          id="doctorName"
+          formControlName="doctorName"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('doctorName')"
+          >Doctor Name is required</ion-note
+        >
+        <ion-note
+          slot="error"
+          *ngIf="
+            this.doctorInfo.get('doctorName').errors?.maxlength &&
+            this.doctorInfo.get('doctorName').touched
+          "
+          >Name can be max 20 characters long</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Speciality</ion-label>
+        <ion-input
+          type="text"
+          id="speciality"
+          formControlName="speciality"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('speciality')"
+          >Doctor speciality is required</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">D.O.B</ion-label>
+        <!-- TODO AM-20 date is not supported in ionic input -->
+        <ion-input type="date" id="doctorDOB" formControlName="dob"></ion-input>
+        <ion-note slot="error" *ngIf="required('dob')"
+          >D.O.B is required</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label position="stacked">Phone Number</ion-label>
+        <ion-input
+          type="tel"
+          id="doctorNumber"
+          formControlName="phoneNumber"
+        ></ion-input>
+        <ion-note slot="error" *ngIf="required('phoneNumber')"
+          >Phone Number is required</ion-note
+        >
+        <ion-note
+          slot="error"
+          *ngIf="doctorInfo.get('phoneNumber').errors?.pattern"
+          >Phone Number should contain 10 numbers</ion-note
+        >
+      </ion-item>
+      <ion-item id="formItem" fill="solid">
+        <ion-label>Gender </ion-label>
+        <ion-select
+          placeholder="Select"
+          id="doctorGender"
+          formControlName="gender"
+        >
+          <ion-select-option
+            *ngFor="let doctorGender of doctorGenderList"
+            value="{{ doctorGender }}"
+            >{{ doctorGender }}</ion-select-option
+          >
+        </ion-select>
+      </ion-item>
+    </div>
+  </form>
+</ion-content>
